@@ -5,5 +5,5 @@
     msg: '##### DATAVERSE PREVIEWERS #####'
 
 - name: enable dataverse-previewers
-  script: dataverse-previewers.sh
+  shell: dataverse-previewers.sh
   tags: previewers

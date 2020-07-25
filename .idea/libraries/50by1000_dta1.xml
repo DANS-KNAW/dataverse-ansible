@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="50by1000.dta1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/tests/custom_sampledata/files/50by1000.dta.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
