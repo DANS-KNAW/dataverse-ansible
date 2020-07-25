@@ -8,6 +8,7 @@
   copy:
     src: dataverse-previewers.sh
     dest: '{{ ansible_user_dir }}'
+    mode: 0700
 
 - name: enable dataverse-previewers
   shell: '{{ ansible_user_dir }}/dataverse-previewers.sh'
