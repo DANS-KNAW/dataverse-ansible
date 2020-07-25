@@ -15,5 +15,5 @@
 
 - name: clean up dataverse-previewers.sh script
   file:
-    path: '{{ ansible_user_dir }}/dataverse-previewers.sh' script
+    path: '{{ ansible_user_dir }}/dataverse-previewers.sh'
     state: absent
