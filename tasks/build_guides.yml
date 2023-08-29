@@ -16,7 +16,7 @@
 
 - name: if branch is release, use develop for guides
   set_fact:
-    dataverse_branch: 'develop'
+    dataverse_branch: '{{ dataverse.version }}'
   when: dataverse_branch == 'release'
 
 - name: do we have the source already

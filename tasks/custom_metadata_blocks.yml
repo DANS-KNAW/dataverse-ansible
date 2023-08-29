@@ -39,7 +39,7 @@
 
 - name: "release case: get develop update-fields.sh from develop"
   ansible.builtin.get_url:
-    url: '{{ dataverse_raw_repo }}/develop/conf/solr/{{ dataverse.solr.version }}/update-fields.sh'
+    url: '{{ dataverse_raw_repo }}/v{{ dataverse.version }}/conf/solr/{{ dataverse.solr.version }}/update-fields.sh'
     dest: /tmp/dvinstall/update-fields.sh
     mode: 0755
   when: dataverse_branch == 'release'
