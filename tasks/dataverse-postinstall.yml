@@ -90,9 +90,18 @@
     name: payara
     state: started
 
-- name: give Payara ample time to become ready
-  ansible.builtin.pause:
-    seconds: 90
+- name: Wait until Dataverse homepage is up
+  uri:
+      url: "http://localhost:8080/"
+      return_content: yes
+  register: dataverse_homepage
+  until: dataverse_homepage.status == 200
+  retries: 10
+  delay: 10
+
+#- name: give Payara ample time to become ready
+#  ansible.builtin.pause:
+#    seconds: 90
 
 - name: start solr indexing -- if this was an upgrade to an existing install, the install scripts reset the solr indexes
   ansible.builtin.get_url:
