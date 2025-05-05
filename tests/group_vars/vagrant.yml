@@ -36,6 +36,10 @@ letsencrypt:
     autorenew: true
     email: 
     user: certbot
+    # Use the letsencrypt staging server for deployment tests
+    # to avoid rate limiting:
+    # https://letsencrypt.org/docs/duplicate-certificate-limit/
+    test_cert: false
 
 dataverse_misc_files_dir: '/opt/dv'
 
@@ -151,13 +155,13 @@ dataverse:
     siteurl: http://0.0.0.0
     root: /usr/local
     dir: payara6
-    zipurl: https://nexus.payara.fish/repository/payara-community/fish/payara/distributions/payara/6.2023.8/payara-6.2023.8.zip
-    zipchecksum: sha256:108ed0fa7f97bb3833ff00610a4951dd41389e2647dffe28132ad54231af694a
+    zipurl: https://nexus.payara.fish/repository/payara-community/fish/payara/distributions/payara/6.2025.2/payara-6.2025.2.zip
+    zipchecksum: sha256:c06edc1f39903c874decf9615ef641ea18d3f7969d38927c282885960d5ee796
   google_analytics_key:
   jacoco:
     enabled: false
     home: /tmp/jacoco
-    version: 0.8.6
+    version: 0.8.12
   language:
     enabled: false
     languages:
@@ -254,10 +258,11 @@ dataverse:
   unittests:
     enabled: true
     argument: '-DcompilerArgument=-Xlint:unchecked test -P all-unit-tests'
+  uploads_dir: /tmp
   usermgmtkey: burrito
   deployment:
     upgrade_only: false
-  version: '6.3'
+  version: '6.6'
 
 build_guides: false
 
@@ -272,8 +277,9 @@ db:
     jdbcurl:
     log_lock_waits: true
     log_statements: none
-    version: 13
+    version: 16
     port: 5432
+    query_counts: true
     replication:
       enabled: false
       # all servers must be defined so firewalls may be opened accordingly
@@ -417,7 +423,7 @@ s3:
 
 schemaspy:
   enabled: false
-  jarurl: https://github.com/schemaspy/schemaspy/releases/download/v6.1.0/schemaspy-6.1.0.jar
+  jarurl: https://github.com/schemaspy/schemaspy/releases/download/v6.2.4/schemaspy-6.2.4.jar
 
 shibboleth:
   enabled: false
