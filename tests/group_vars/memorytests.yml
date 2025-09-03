@@ -243,8 +243,8 @@ dataverse:
     group: solr
     root: /usr/local/solr
     user: solr
-    version: 9.4.1
-    checksum: sha256:41015d7a693fefa4b8a537f5d0982adae8f13f382edf39c94a3497f9b3783250
+    version: 9.8.0
+    checksum: sha256:9948dcf798c196b834c4cbb420d1ea5995479431669d266c33d46548b67e69e1
     listen: 127.0.0.1
   srcdir: /tmp/dataverse
   thumbnails: false
@@ -255,7 +255,7 @@ dataverse:
   usermgmtkey: burrito
   deployment:
     upgrade_only: false
-  version: '6.6'
+  version: '6.7'
 
 build_guides: false
 
@@ -311,7 +311,7 @@ localstack:
   web_ui: 8888
 
 maven:
-  version: 3.8.8
+  version: 3.9.11
 
 munin:
   install: false

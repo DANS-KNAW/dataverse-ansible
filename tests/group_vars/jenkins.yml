@@ -258,7 +258,7 @@ dataverse:
   usermgmtkey: burrito
   deployment:
     upgrade_only: false
-  version: '6.6'
+  version: '6.7.1'
 
 build_guides: false
 
@@ -337,7 +337,7 @@ localstack:
       chunked_encoding: true
 
 maven:
-  version: 3.9.5
+  version: 3.9.11
 
 minio:
   enabled: true
