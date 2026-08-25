@@ -150,9 +150,9 @@ dataverse:
     siteurl: 
     listen_address: 127.0.0.1
     root: /usr/local
-    dir: payara6
-    zipurl: https://nexus.payara.fish/repository/payara-community/fish/payara/distributions/payara/6.2025.10/payara-6.2025.10.zip
-    zipchecksum: sha256:7478dd3870fde4f54e87675e4482950baa2c06bd1b6ba567e22676534fb3bbb6
+    dir: payara7
+    zipurl: https://nexus.payara.fish/repository/payara-community/fish/payara/distributions/payara/7.2026.2/payara-7.2026.2.zip
+    zipchecksum: sha256:3495d025450f2b4263f7fc91014bea89db9de907ad516b675d4f47b00e1ad4de
   google_analytics_key:
   jacoco:
     enabled: true
@@ -260,7 +260,7 @@ dataverse:
   usermgmtkey: burrito
   deployment:
     upgrade_only: false
-  version: '6.9'
+  version: '6.11'
 
 build_guides: false
 
@@ -306,7 +306,7 @@ grafana:
   grafana_password: 'adm1n'
 
 java:
-  version: 17
+  version: 21
 
 localstack:
   enabled: true
@@ -337,9 +337,28 @@ localstack:
       url_expiration_minutes: 60
       payload_signing: false
       chunked_encoding: true
+    # localstack_noredirect: same endpoint as localstack1 but with a distinct
+    # bucket and both redirects disabled, so tests can exercise the non-redirect
+    # (proxy-through-Dataverse) code path explicitly.
+    - label: LocalStackNoRedirect
+      id: localstack_noredirect
+      bucket_name: mybucket-noredirect
+      enabled: false
+      access_key: 4cc355_k3y
+      secret_access_key: s3cr3t_4cc355_k3y
+      custom_endpoint_url: "http://localhost:4566"
+      download_redirect: false
+      upload_redirect: false
+      files_type: s3
+      ingestsizelimit: 2000000000
+      path_style_access: true
+      region: us-east-2
+      url_expiration_minutes: 60
+      payload_signing: false
+      chunked_encoding: true
 
 maven:
-  version: 3.9.12
+  version: 3.9.15
 
 minio:
   enabled: true
